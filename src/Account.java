@@ -15,3 +15,18 @@ public class Account {
     public double getBalance() {
         return balance;
     }
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance = balance + amount;
+        }
+    }
+
+    public boolean withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance = balance - amount;
+            return true;
+        }
+
+        System.out.println("Det finns inte tillräckligt med pengar på kontot.");
+        return false;
+    }
