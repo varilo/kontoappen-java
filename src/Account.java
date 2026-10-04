@@ -30,3 +30,4 @@ public class Account {
         System.out.println("Det finns inte tillräckligt med pengar på kontot.");
         return false;
     }
+}
