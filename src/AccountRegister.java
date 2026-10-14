@@ -1,27 +1,22 @@
-import java.util.ArrayList; // Används för att spara flera konton i en lista.
+import java.util.ArrayList;
 
-// Den här klassen sköter listan med bankkonton.
 public class AccountRegister {
-    // Listan är private så att den bara ändras genom registrets metoder.
+    // Registret sparar kontona i en lista.
     private ArrayList<Account> accounts = new ArrayList<>();
 
-    // Skapar ett nytt konto och sparar det i listan.
+    // Skapar ett konto och lägger till det i registret.
     public void createAccount(String owner, double balance) {
-        Account account = new Account(owner, balance); // Skapar kontoobjektet.
-        accounts.add(account); // Lägger till kontot i listan.
+        Account account = new Account(owner, balance);
+        accounts.add(account);
     }
 
-    // Visar alla konton som finns i listan.
     public void showAccounts() {
-        // Om listan är tom visas ett meddelande i stället.
         if (accounts.isEmpty()) {
             System.out.println("Det finns inga konton.");
-            return; // Avslutar metoden här.
+            return;
         }
 
-        // Går igenom ett konto i taget.
         for (Account account : accounts) {
-            // Hämtar ägare och saldo genom kontots metoder.
             System.out.println(
                     "Ägare: " + account.getOwner()
                             + " | Saldo: " + account.getBalance() + " kr"
@@ -29,16 +24,14 @@ public class AccountRegister {
         }
     }
 
-    // Söker efter ett konto med ägarens namn.
+    // Söker efter kontot via ägarens namn.
     public Account findAccount(String owner) {
-        // Går igenom kontona ett i taget.
         for (Account account : accounts) {
-            // Jämför namnen utan att bry sig om stora och små bokstäver.
             if (account.getOwner().equalsIgnoreCase(owner)) {
-                return account; // Skickar tillbaka kontot som hittades.
+                return account;
             }
         }
 
-        return null; // Inget konto med det namnet hittades.
+        return null;
     }
 }
